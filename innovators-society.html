@@ -4,24 +4,27 @@
 <style>
   /* ---------- Tokens ---------- */
   :root {
-    --bg: #F1F4EF;
+    --bg: #F7F5F1;
     --surface: #FFFFFF;
-    --surface-2: #E8ECE2;
-    --ink: #142019;
-    --ink-soft: #4A5A4E;
-    --ink-faint: #7C8B7F;
-    --primary: #1F4D3D;
-    --primary-strong: #123328;
-    --on-primary: #F1F4EF;
-    --accent: #C77F22;
-    --accent-soft: #F3DFB8;
-    --accent-ink: #4A330F;
-    --brick: #A13D2E;
-    --line: #D7DECF;
-    --shadow: 220 25% 10%;
+    --surface-2: #EFEAE3;
+    --ink: #1A1A1A;
+    --ink-soft: #5B564D;
+    --ink-faint: #8C8579;
+    --primary: #BA0C2F;
+    --primary-strong: #971B2F;
+    --on-primary: #FFFFFF;
+    --secondary: #215732;
+    --secondary-strong: #13322B;
+    --accent: #F1B434;
+    --accent-soft: #FBEAC0;
+    --accent-ink: #6B4A10;
+    --line: #E2DCD2;
+    --shadow: 20 10% 8%;
 
-    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* IvyPresto Headline / IvyStyle Sans are the WashU faces; Georgia and Calibri
+       are the university's own documented web-safe fallbacks for non-Adobe users. */
+    --font-display: Georgia, "Times New Roman", serif;
+    --font-body: Calibri, Candara, "Segoe UI", Optima, Arial, sans-serif;
     --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
 
     --space-1: 0.25rem;
@@ -39,40 +42,44 @@
     --max: 1180px;
   }
 
+  /* Dark mode substitutes WashU's own accent colors (Coral, Mint) for Red/Green
+     where they'd otherwise fail contrast on a dark ground — Gold carries over as-is. */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0E1613;
-      --surface: #162019;
-      --surface-2: #1C271E;
-      --ink: #ECF1E9;
-      --ink-soft: #AEBBAD;
-      --ink-faint: #7E8C7E;
-      --primary: #6BC49F;
-      --primary-strong: #8ED8B6;
-      --on-primary: #0E1613;
-      --accent: #E8A33D;
-      --accent-soft: #33280F;
-      --accent-ink: #F6DFB0;
-      --brick: #D5715C;
-      --line: #283427;
+      --bg: #171412;
+      --surface: #211D19;
+      --surface-2: #2A241E;
+      --ink: #F3EFEA;
+      --ink-soft: #C9C1B7;
+      --ink-faint: #93897C;
+      --primary: #FF6D6A;
+      --primary-strong: #FF8B85;
+      --on-primary: #171412;
+      --secondary: #B5E3D8;
+      --secondary-strong: #D3EFE8;
+      --accent: #F1B434;
+      --accent-soft: #3A2C0E;
+      --accent-ink: #F6DFA0;
+      --line: #332C25;
     }
   }
 
   :root[data-theme="dark"] {
-    --bg: #0E1613;
-    --surface: #162019;
-    --surface-2: #1C271E;
-    --ink: #ECF1E9;
-    --ink-soft: #AEBBAD;
-    --ink-faint: #7E8C7E;
-    --primary: #6BC49F;
-    --primary-strong: #8ED8B6;
-    --on-primary: #0E1613;
-    --accent: #E8A33D;
-    --accent-soft: #33280F;
-    --accent-ink: #F6DFB0;
-    --brick: #D5715C;
-    --line: #283427;
+    --bg: #171412;
+    --surface: #211D19;
+    --surface-2: #2A241E;
+    --ink: #F3EFEA;
+    --ink-soft: #C9C1B7;
+    --ink-faint: #93897C;
+    --primary: #FF6D6A;
+    --primary-strong: #FF8B85;
+    --on-primary: #171412;
+    --secondary: #B5E3D8;
+    --secondary-strong: #D3EFE8;
+    --accent: #F1B434;
+    --accent-soft: #3A2C0E;
+    --accent-ink: #F6DFA0;
+    --line: #332C25;
   }
 
   /* ---------- Reset-ish ---------- */
@@ -110,9 +117,8 @@
 
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
     color: var(--ink-faint);
   }
 
@@ -137,9 +143,8 @@
     align-items: baseline;
     gap: var(--space-2);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
     color: var(--ink-soft);
     text-decoration: none;
     white-space: nowrap;
@@ -148,7 +153,6 @@
     font-family: var(--font-display);
     font-size: 1.05rem;
     letter-spacing: 0;
-    text-transform: none;
     color: var(--ink);
     font-weight: 700;
   }
@@ -260,9 +264,8 @@
   .path-row.next { padding-inline: var(--space-4); }
   .path-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: var(--ink-faint);
   }
   .path-row.current .path-label { color: var(--primary); }
@@ -293,9 +296,8 @@
     padding: var(--space-2) var(--space-4);
     color: var(--ink-faint);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
   }
   .path-connector svg { flex-shrink: 0; }
   .path-connector .rule {
@@ -337,11 +339,10 @@
   }
   .group-head .tag {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--primary);
-    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+    color: var(--secondary);
+    font-weight: 700;
   }
   .group-head .desc {
     font-size: 0.88rem;
@@ -408,9 +409,9 @@
   .signature .badge {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.74rem;
+    letter-spacing: 0.01em;
+    font-weight: 600;
     color: var(--accent-ink);
     background: var(--accent-soft);
     padding: 0.25rem 0.6rem;
@@ -434,15 +435,15 @@
     font-weight: 700;
     font-size: 1.3rem;
     font-variant-numeric: tabular-nums;
-    color: var(--brick);
+    color: var(--ink-faint);
   }
-  .stat-chip:first-child .amount { color: var(--primary); }
+  .stat-chip:first-child .amount { color: var(--accent-ink); }
+  .stat-chip:nth-child(2) .amount { color: var(--ink-soft); }
   .stat-chip .place {
     margin-top: 0.3rem;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.74rem;
+    letter-spacing: 0.01em;
     color: var(--ink-faint);
   }
 
@@ -453,10 +454,9 @@
     border-radius: var(--radius);
     margin-inline: var(--space-5);
     padding: var(--space-8) var(--space-6);
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-4);
   }
   .cta-band h2 {
@@ -465,6 +465,7 @@
     font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem);
     text-wrap: balance;
     max-width: 22ch;
+    text-align: left;
   }
   .cta-band p {
     color: color-mix(in srgb, var(--on-primary) 78%, transparent);
@@ -525,7 +526,7 @@
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="#top">
-      SKANDALARIS CENTER <span class="divider">/</span> <strong>Innovators Society</strong>
+      Skandalaris Center <span class="divider">/</span> <strong>Innovators Society</strong>
     </a>
     <a class="btn btn-primary btn-sm" href="#">Join</a>
   </div>
@@ -560,7 +561,7 @@
 
       <div class="path-connector">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="M6 14l6 6 6-6"/></svg>
-        steps up to
+        Steps up to
         <span class="rule"></span>
       </div>
 
